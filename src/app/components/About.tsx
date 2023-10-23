@@ -1,54 +1,30 @@
-"use client";
-
-import { fetchAllTechno } from "../utils/fetchTechno";
 import Section from "./Section";
-import { Techno } from "../../../typing";
-import { GetServerSideProps } from "next";
+import AllEducation from "./Education";
 import AllTechno from "./Techno";
-import Education from "./Education";
+import { Techno } from "../../../typing";
+import { Education } from "../../../typing";
+import { sanityClient } from "../sanity";
 
-type Props = {
-  techno: Techno[];
-};
-
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const techno: Techno[] = await fetchAllTechno();
-
-  return {
-    props: {
-      techno,
-    },
-  };
-};
-
-export default function About({ techno }: Props) {
+export default async function About() {
+  const techno: Techno[] = await sanityClient.fetch(`*[_type == "techno"]`);
+  const education: Education[] = await sanityClient.fetch(`*[_type == "education"]`);
   return (
     <Section>
       <div
-        id="about"
         data-aos="fade-right"
-        className="text-secondary flex flex-col gap-4"
+        className="text-secondary flex flex-col gap-16 pt-8"       
+        id="about"
       >
-        <h2 className="font-montserrat text-[32px] tracking-widest">about</h2>
-        <p className="text-[16px] opacity-60 w-1/2 self-end md:w-auto">
-          discover my education and skills
-        </p>
-        <div className="py-3 px-8 flex flex-col gap-10">
-          <Education year="2025" text="Master Tech Lead - Digital Campus" />
-          <Education year="2023" text="Bachelor ESD - Digital Campus" />
-          <Education year="2022" text="BTS SIO SLAM - IPSSI" />
+        <div className="flex flex-col justify-between md:items-center md:flex-row">
+          <h2 className="font-montserrat font-semibold text-[32px] md:text-[48px] tracking-widest">
+            about
+          </h2>
+          <p className="text-[16px] self-end font-rnssanz opacity-60 md:self-auto">
+            discover my education and skills
+          </p>
         </div>
-      </div>
-      <div>
-        {techno.map((techno) => (
-          <AllTechno
-            key={techno._id}
-            title={techno.title}
-            id={techno._id}
-            imageSrc={techno.image}
-            imageAlt={techno.name}
-          />
-        ))}
+        <AllEducation education={education} />
+        <AllTechno techno={techno}/>
       </div>
     </Section>
   );

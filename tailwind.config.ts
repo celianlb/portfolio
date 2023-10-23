@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss'
-
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,10 +14,12 @@ const config: Config = {
       primary: "#1E1E1E",
       secondary: "#FFFFFF",
       varprimary: "#2D2D2D",
+      black: "#000000",
     },
     fontFamily: {
       montserrat: ["var(--font-montserrat)"],
       rnssanz: ["var(--font-rnssanz)"],
+      monumentextended: ["var(--font-monumentextended)"],
     },
     keyframes: {
       typing: {
@@ -45,7 +46,8 @@ const config: Config = {
 
   },
   plugins: [
-    require('tailwindcss-animated')
+    require('tailwindcss-animated'),
+    require('taos/plugin'),
   ],
 }
 export default config

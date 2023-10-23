@@ -4,9 +4,12 @@ import React from "react";
 import Header from "./components/Header";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
-import About from "./components/About";
+import Footer from "./components/Footer";
+import { Social } from "../../typing";
+import { sanityClient } from "./sanity";
 
 const rnssanz = localFont({ src: "../../public/font/RNSSanz-Normal.otf" });
+const monumentextended = localFont({ src: "../../public/font/MonumentExtended-Ultrabold.otf" });
 
 const montserrat = Montserrat({
   subsets: ["latin-ext"],
@@ -20,18 +23,18 @@ export const metadata: Metadata = {
   description: "Portfolio Célian Lebacle",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const social: Social[] = await sanityClient.fetch(`*[_type == "social"]`);
   return (
-    <html lang="fr">
-      <body className="px-6 py-10">
+    <html lang="fr" >
+      <body className={`${montserrat.variable} ${rnssanz.style} ${monumentextended.style} px-6 py-10 md:px-24`}>
         <Header />
         <main>{children}</main>
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>AOS.init();</script>
+        <Footer social={social}/>
       </body>
     </html>
   );

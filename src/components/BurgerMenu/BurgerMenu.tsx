@@ -25,10 +25,7 @@ const BurgerMenu = () => {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
+      <div
         className="relative pb-8 md:hidden"
       >
         <motion.div
@@ -70,7 +67,7 @@ const BurgerMenu = () => {
             </div>
           </Transition>
         </div>
-      </motion.div>
+      </div>
     </>
   );
 };

@@ -28,19 +28,11 @@ const BurgerMenu = () => {
       <div
         className="relative pb-8 md:hidden"
       >
-        <motion.div
-          className="flex justify-center cursor-pointer"
-          onClick={toggleMenu}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
           {isOpen ? (
             <FiX size={50} className="bg-varprimary text-secondary rounded-lg p-2" />
           ) : (
             <FiMenu size={50} className="text-secondary p-2 transition ease-in duration-300" />
           )}
-        </motion.div>
         <div className="">
           <Transition
             show={isOpen}

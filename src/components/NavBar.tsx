@@ -3,11 +3,8 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      className="pb-8 justify-center text-secondary gap-10 hidden md:flex"
+    <div
+      className="pb-8 justify-center text-secondary gap-10 hidden md:flex transition ease-in duration-200"
     >
       <div className="flex flex-row bg-menu  rounded-full font-rnssanz font-bold">
         <Link
@@ -35,6 +32,6 @@ export default function NavBar() {
           contact
         </Link>
       </div>
-    </motion.div>
+    </div>
   );
 }

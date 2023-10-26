@@ -14,7 +14,7 @@ export default async function ProjectCard() {
     return (
         <div className=" flex flex-wrap gap-8 md:gap-12 justify-center md:justify-between h-full">
           {projects.map((projects) => (
-            <div className="text-secondary flex flex-col gap-3">
+            <div key={projects._id} className="text-secondary flex flex-col gap-3">
               <button className="" onClick={() => router.push(`/projects/${projects.slug.current}`)}>
                 <Image
                   src={projects.image && urlFor(projects.image).url()}

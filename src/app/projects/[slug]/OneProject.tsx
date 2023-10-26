@@ -36,7 +36,7 @@ export default async function OneProject({ project }: ProjectClientProps) {
         <div className="flex flex-row justify-between">
           <div className="flex flex-row gap-3">
             {project.techno.map((techno) => (
-              <div>
+              <div key={techno._id}>
                 <Image
                   src={techno.image && urlFor(techno.image).url()}
                   width={32}

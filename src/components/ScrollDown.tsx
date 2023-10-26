@@ -8,7 +8,6 @@ interface ScrollDownProps {
 
 export default function ScrollDown({ target }: ScrollDownProps) {
   return (
-    <button className="transition-transform ease-out duration-100 ">
       <Link
         data-te-smooth-scroll-init
         className=""
@@ -21,6 +20,5 @@ export default function ScrollDown({ target }: ScrollDownProps) {
           </div>
         </div>
       </Link>
-    </button>
   );
 }

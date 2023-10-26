@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+const {nextui} = require("@nextui-org/react");
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -14,6 +15,7 @@ const config: Config = {
       primary: "#1E1E1E",
       secondary: "#FFFFFF",
       varprimary: "#2D2D2D",
+      menu: "#181818",
       black: "#000000",
     },
     fontFamily: {
@@ -42,9 +44,13 @@ const config: Config = {
     },
     animation: {
       typing: "typing 2s steps(20) infinite alternate, blink .7s infinite"
-    }
+    },
+    boxShadow: {
+      '3xl': '0 0 20px 0  rgba(0, 0, 0, 0.3)',
+    },
 
   },
+  darkMode: "class",
   plugins: [
     require('tailwindcss-animated'),
     require('taos/plugin'),

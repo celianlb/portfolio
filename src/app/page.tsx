@@ -1,21 +1,31 @@
-import Hero from "./components/Hero";
-import About from "./components/About";
+'use client';
+
+import Hero from "@/components/Hero";
 import { Projects, Social } from "../../typing";
 import { sanityClient } from "./sanity";
-import ProjectsSection from "./components/ProjectsSection";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import About from "@/components/About";
+import ProjectsSection from "@/components/ProjectsSection";
+import Contact from "@/components/Contact";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { NextUIProvider } from "@nextui-org/react";
 
 export default async function Home() {
-  const projects: Projects[] = await sanityClient.fetch(`*[_type == "projects"]`);
+  const projects: Projects[] = await sanityClient.fetch(
+    `*[_type == "projects"]`
+  );
   const social: Social[] = await sanityClient.fetch(`*[_type == "social"]`);
 
   return (
     <>
-      <Hero social={social}/>
-      <About />
-      <ProjectsSection projects={projects}/>
-      <Contact />      
+      <NextUIProvider>
+        <Header />
+        <Hero />
+        <About />
+        <ProjectsSection projects={projects} />
+        <Contact />
+        <Footer />
+      </NextUIProvider>
     </>
   );
 }

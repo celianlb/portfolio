@@ -1,15 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import React from "react";
-import Header from "./components/Header";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
-import Footer from "./components/Footer";
-import { Social } from "../../typing";
-import { sanityClient } from "./sanity";
 
 const rnssanz = localFont({ src: "../../public/font/RNSSanz-Normal.otf" });
-const monumentextended = localFont({ src: "../../public/font/MonumentExtended-Ultrabold.otf" });
+const monumentextended = localFont({
+  src: "../../public/font/MonumentExtended-Ultrabold.otf",
+});
 
 const montserrat = Montserrat({
   subsets: ["latin-ext"],
@@ -28,13 +26,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const social: Social[] = await sanityClient.fetch(`*[_type == "social"]`);
   return (
-    <html lang="fr" >
-      <body className={`${montserrat.variable} ${rnssanz.style} ${monumentextended.style} px-6 py-10 md:px-24`}>
-        <Header />
-        <main>{children}</main>
-        <Footer social={social}/>
+    <html lang="fr" className="!scroll-smooth">
+      <body
+        className={`${montserrat.variable} ${rnssanz.style} ${monumentextended.style} `}
+      >
+        <main className="dark px-6 py-10 md:px-24 2xl:container">{children}</main>
       </body>
     </html>
   );

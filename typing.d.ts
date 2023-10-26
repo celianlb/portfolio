@@ -5,14 +5,13 @@ interface SanityBody {
     _updatedAt: string;
   }
 
-export interface Techno extends SanityBody {
-    note(note: any): import("react").ReactNode;
+  export interface Techno extends SanityBody {
     _type: 'techno';
+    title: string;
     name: string;
-    title: string,
-    image:  ImageBitmap;
+    image: ImageBitmap;
     slug: {
-        current: string;
+      current: string;
     };
     link: string;
     rating: rating;
@@ -28,8 +27,9 @@ export interface Projects extends SanityBody {
     linkGitHub: string;
     link: string;
     type: string;
-    techno: string;
+    techno: Techno[];
     category: string;
+    description: string;
   }
 export interface Social extends SanityBody {
     _type: 'social';

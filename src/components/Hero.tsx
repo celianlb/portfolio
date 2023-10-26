@@ -1,16 +1,21 @@
+'use client';
+
 import Section from "./Section";
 import Image from "next/image";
 import ScrollDown from "./ScrollDown";
 import localFont from "next/font/local";
-import { Social } from "../../../typing";
 import Link from "next/link";
-import { urlFor } from "../sanity";
+import { sanityClient, urlFor } from "@/app/sanity";
+import { Social } from "../../typing";
+import SocialComponents from "./Social";
+import { motion } from "framer-motion";
 
 const monumentextended = localFont({
-  src: "../../../public/font/MonumentExtended-Ultrabold.otf",
+  src: "../../public/font/MonumentExtended-Ultrabold.otf",
 });
 
-export default function Hero({ social }: { social: Social[] }) {
+export default async function Hero() {
+  const social: Social[] = await sanityClient.fetch(`*[_type == "social"]`);
   return (
     <Section>
       <div className="flex flex-col items-center text-secondary gap-8">
@@ -25,18 +30,7 @@ export default function Hero({ social }: { social: Social[] }) {
             Hello, Im a junior developper who want to specialize in front-end
             developpement
           </p>
-          <div className="flex flex-row gap-4">
-            {social.map((social) => (
-              <Link href={social.link} target="_blank" className="">
-                <Image
-                  src={social.image && urlFor(social.image).url()}
-                  alt={social.title}
-                  width={32}
-                  height={32}
-                />
-              </Link>
-            ))}
-          </div>
+          <SocialComponents width={32} height={32} social={social} />
         </div>
         <ScrollDown target="" />
       </div>

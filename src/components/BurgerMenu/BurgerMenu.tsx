@@ -25,18 +25,21 @@ const BurgerMenu = () => {
 
   return (
     <>
-      <div
-        className="relative pb-8 md:hidden"
-      >
-        <div
-          className="flex justify-center cursor-pointer"
-          onClick={toggleMenu}
-        >
-          {isOpen ? (
-            <FiX size={50} className="bg-varprimary text-secondary rounded-lg p-2" />
-          ) : (
-            <FiMenu size={50} className="text-secondary p-2 transition ease-in duration-300" />
-          )}
+      <div className="relative pb-8 md:hidden">
+        <div className="flex justify-center cursor-pointer">
+          <button onClick={toggleMenu}>
+            {isOpen ? (
+              <FiX
+                size={50}
+                className="bg-varprimary text-secondary rounded-lg p-2"
+              />
+            ) : (
+              <FiMenu
+                size={50}
+                className="text-secondary p-2 transition ease-in duration-300"
+              />
+            )}
+          </button>
         </div>
         <div className="">
           <Transition
@@ -51,13 +54,25 @@ const BurgerMenu = () => {
           >
             <div className="w-fit h-fit bg-varprimary text-secondary font-montserrat rounded-lg font-bold text-lg">
               <div className="flex text-center items-center flex-col p-6 lowercase">
-                <Link href="/#about" className="hover:opacity-20" onClick={closeMenu}>
+                <Link
+                  href="/#about"
+                  className="hover:opacity-20"
+                  onClick={closeMenu}
+                >
                   About
                 </Link>
-                <Link href="/projects" className="hover:opacity-20" onClick={closeMenu}>
+                <Link
+                  href="/projects"
+                  className="hover:opacity-20"
+                  onClick={closeMenu}
+                >
                   Projects
                 </Link>
-                <Link href="/#contact" className="hover:opacity-20" onClick={closeMenu}>
+                <Link
+                  href="/#contact"
+                  className="hover:opacity-20"
+                  onClick={closeMenu}
+                >
                   Contact
                 </Link>
               </div>

@@ -28,7 +28,7 @@ const BurgerMenu = () => {
       <div
         className="relative pb-8 md:hidden"
       >
-        <button
+        <div
           className="flex justify-center cursor-pointer"
           onClick={toggleMenu}
         >
@@ -37,7 +37,7 @@ const BurgerMenu = () => {
           ) : (
             <FiMenu size={50} className="text-secondary p-2 transition ease-in duration-300" />
           )}
-        </button>
+        </div>
         <div className="">
           <Transition
             show={isOpen}

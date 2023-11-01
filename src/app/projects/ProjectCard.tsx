@@ -4,6 +4,7 @@ import { sanityClient, urlFor } from "@/app/sanity";
 import { Projects } from "../../../typing";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default async function ProjectCard() {
     const router = useRouter();
@@ -15,7 +16,7 @@ export default async function ProjectCard() {
         <div className=" flex flex-wrap gap-8 md:gap-12 justify-center md:justify-between h-full">
           {projects.map((projects) => (
             <div key={projects._id} className="text-secondary flex flex-col gap-3">
-              <button className="" onClick={() => router.push(`/projects/${projects.slug.current}`)}>
+              <Link href={`/projects/${projects.slug.current}`}>
                 <Image
                   src={projects.image && urlFor(projects.image).url()}
                   alt={projects.title}
@@ -23,7 +24,7 @@ export default async function ProjectCard() {
                   height={813}
                   className="w-[400px] h-[254px] rounded-[17px] hover:shadow-3xl hover:shadow-black hover:scale-105 transition ease-in-out duration-300"
                 />
-              </button>
+              </Link>
               <div className="flex flex-row justify-between">
                 <div className="flex flex-col gap-3">
                   <p key={projects._id} className="font-bold">

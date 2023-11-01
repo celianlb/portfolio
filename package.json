@@ -22,17 +22,15 @@
     "@types/next": "^9.0.0",
     "aos": "^2.3.4",
     "framer-motion": "^10.16.4",
-    "gsap": "^3.12.2",
     "next": "^14.0.0",
-    "next-sanity": "^5.5.8",
+    "next-sanity": "^5.5.10",
     "react": "^18",
     "react-async": "^10.0.1",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.17.0",
     "sanity": "^3.18.0",
-    "taos": "^1.0.5",
-    "tw-elements": "^1.0.0"
+    "taos": "^1.0.5"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.22",

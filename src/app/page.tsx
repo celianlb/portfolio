@@ -8,7 +8,6 @@ import ProjectsSection from "@/components/ProjectsSection";
 import Contact from "@/components/Contact";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { NextUIProvider } from "@nextui-org/react";
 
 export default async function Home() {
   const projects: Projects[] = await sanityClient.fetch(
@@ -18,14 +17,12 @@ export default async function Home() {
 
   return (
     <>
-      <NextUIProvider>
         <Header />
         <Hero />
         <About />
         <ProjectsSection projects={projects} />
         <Contact />
         <Footer />
-      </NextUIProvider>
     </>
   );
 }

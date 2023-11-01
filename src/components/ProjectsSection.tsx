@@ -7,6 +7,7 @@ import Button from "./Button";
 import { FiChevronRight } from "react-icons/fi";
 import { urlFor } from "@/app/sanity";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default async function Projects({ projects }: { projects: Projects[] }) {
   const router = useRouter();
@@ -25,11 +26,7 @@ export default async function Projects({ projects }: { projects: Projects[] }) {
         <div className=" flex flex-wrap gap-8 md:gap-12 justify-center">
           {projects.map((projects) => (
             <div key={projects._id} className="text-secondary flex flex-col gap-3">
-              <button
-                onClick={() =>
-                  router.push(`/projects/${projects.slug.current}`)
-                }
-              >
+              <Link href={`/projects/${projects.slug.current}`}>
                 <Image
                   src={projects.image && urlFor(projects.image).url()}
                   alt={projects.title}
@@ -37,7 +34,7 @@ export default async function Projects({ projects }: { projects: Projects[] }) {
                   height={813}
                   className="w-[342px] h-[217px] lg:w-[400px] lg:h-[254px] rounded-[17px] hover:shadow-3xl hover:shadow-black hover:scale-105 transition ease-in-out duration-300"
                 />
-              </button>
+              </Link>
               <div className="flex flex-row justify-between">
                 <div className="flex flex-col gap-3">
                   <p key={projects._id} className="font-bold">
@@ -45,7 +42,7 @@ export default async function Projects({ projects }: { projects: Projects[] }) {
                   </p>
                   <p className="text-sm">{projects.category}</p>
                 </div>
-                <p>{projects.type}</p>
+                <p className=" opacity-50">{projects.type}</p>
               </div>
             </div>
           ))}

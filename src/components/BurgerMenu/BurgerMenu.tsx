@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FiX, FiMenu } from "react-icons/fi";
-import { Transition } from "@headlessui/react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,18 +22,23 @@ const BurgerMenu = () => {
     }
   }, [isOpen]);
 
+  const menuVariants = {
+    open: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+    },
+    closed: {
+      opacity: 0,
+      transition: { duration: 0.3 },
+    },
+  };
+
   return (
     <>
       <div className="relative pb-8 md:hidden">
-        <div
-          className="flex justify-center cursor-pointer"
-          onClick={toggleMenu}
-        >
+        <div className="flex justify-center cursor-pointer" onClick={toggleMenu}>
           {isOpen ? (
-            <FiX
-              size={50}
-              className="bg-varprimary text-secondary rounded-lg p-2"
-            />
+            <FiX size={50} className="bg-varprimary text-secondary rounded-lg p-2" />
           ) : (
             <FiMenu
               size={50}
@@ -42,44 +46,36 @@ const BurgerMenu = () => {
             />
           )}
         </div>
-        <div className="">
-          <Transition
-            show={isOpen}
-            enter="transition-opacity duration-500"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            className="bg-black-spec z-50 mt-24 fixed top-0 left-0 w-full h-fit flex justify-center items-center"
-          >
-            <div className="w-fit h-fit bg-varprimary text-secondary font-montserrat rounded-lg font-bold text-lg">
-              <div className="flex text-center items-center flex-col p-6 lowercase">
-                <Link
-                  href="/#about"
-                  className="hover:opacity-20"
-                  onClick={closeMenu}
-                >
-                  About
-                </Link>
-                <Link
-                  href="/projects"
-                  className="hover:opacity-20"
-                  onClick={closeMenu}
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="/#contact"
-                  className="hover:opacity-20"
-                  onClick={closeMenu}
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-          </Transition>
-        </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              className="bg-black-spec z-50 mt-24 fixed top-0 left-0 w-full h-fit flex justify-center items-center"
+            >
+              <motion.div
+                className="w-fit h-fit bg-varprimary text-secondary font-montserrat rounded-lg font-bold text-lg"
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="flex text-center items-center flex-col p-6 lowercase">
+                  <Link href="/#about" className="hover:opacity-20" onClick={closeMenu}>
+                    About
+                  </Link>
+                  <Link href="/projects" className="hover:opacity-20" onClick={closeMenu}>
+                    Projects
+                  </Link>
+                  <Link href="/#contact" className="hover:opacity-20" onClick={closeMenu}>
+                    Contact
+                  </Link>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );

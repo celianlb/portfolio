@@ -15,9 +15,9 @@ interface ProjectClientProps {
 export default async function OneProject({ project }: ProjectClientProps) {
   const router = useRouter();
   return (
-    <div className="flex flex-col text-secondary m-auto w-full gap-3 md:w-[500px]">
+    <div className="flex flex-col text-secondary m-auto w-full gap-3 md:w-[650px]">
       <button
-        className="flex flex-row items-center p-4 gap-3 mb-4 hover:bg-secondary w-fit hover:text-primary rounded-full transition duration-150" // Ajouter une position absolue pour le bouton avec un espacement de 24px depuis le haut
+        className="flex flex-row items-center gap-3 mb-4" // Ajouter une position absolue pour le bouton avec un espacement de 24px depuis le haut
         onClick={() => router.back()}
       >
         <FiArrowLeft className="" />

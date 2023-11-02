@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Célian Lebacle",
+  title: "Portfolio - Célian Lebacle",
   description: "Portfolio Célian Lebacle",
 };
 
@@ -31,9 +31,8 @@ export default async function RootLayout({
     <html lang="fr" className="!scroll-smooth">
       <body
         className={`${montserrat.variable} ${rnssanz.style} ${monumentextended.style} `}
-      >
-        <main className="dark px-6 py-10 md:px-24 2xl:container">
-          <Header />
+      >        
+        <main className="dark px-6 py-10 md:px-24 2xl:container">          
           {children}
         </main>
       </body>

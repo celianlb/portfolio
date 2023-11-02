@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import React from "react";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
+import Header from "@/components/Header";
 
 const rnssanz = localFont({ src: "../../public/font/RNSSanz-Normal.otf" });
 const monumentextended = localFont({
@@ -31,7 +32,10 @@ export default async function RootLayout({
       <body
         className={`${montserrat.variable} ${rnssanz.style} ${monumentextended.style} `}
       >
-        <main className="dark px-6 py-10 md:px-24 2xl:container">{children}</main>
+        <main className="dark px-6 py-10 md:px-24 2xl:container">
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   );

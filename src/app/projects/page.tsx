@@ -7,8 +7,7 @@ export default async function ProjectsPage() {
   
   return (
     <main>
-      <Section>
-        <Header />
+      <Section>        
         <ProjectCard />
       </Section>
     </main>

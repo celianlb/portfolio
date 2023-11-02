@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <>
-        <Header />
+        
         <Hero />
         <About />
         <ProjectsSection projects={projects} />

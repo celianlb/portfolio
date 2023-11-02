@@ -13,7 +13,7 @@ export default async function ProjectCard() {
     `*[_type == "projects"]`
   );
     return (
-        <div className=" flex flex-wrap gap-8 md:gap-12 justify-center md:justify-between h-full">
+        <div className=" flex flex-wrap gap-8 md:gap-12 justify-center lg:justify-between h-full">
           {projects.map((projects) => (
             <div key={projects._id} className="text-secondary flex flex-col gap-3">
               <Link href={`/projects/${projects.slug.current}`}>
@@ -22,7 +22,7 @@ export default async function ProjectCard() {
                   alt={projects.title}
                   width={1280}
                   height={813}
-                  className="w-[400px] h-[254px] rounded-[17px] hover:shadow-3xl hover:shadow-black hover:scale-105 transition ease-in-out duration-300"
+                  className=" w-[330px] h-[220px] md:w-[400px] md:h-[254px] rounded-[17px] hover:shadow-3xl hover:shadow-black hover:scale-105 transition ease-in-out duration-300"
                 />
               </Link>
               <div className="flex flex-row justify-between">

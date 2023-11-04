@@ -37,8 +37,8 @@ export default function Header() {
       >
         <Image
           src={"/img/memoji.png"}
-          width={75}
-          height={75}
+          width={50}
+          height={50}
           alt="memoji home"
           className="transition duration-300  transform bg-secondary shadow-3xl rounded-full mb-8 shadow-secondary"          
         />

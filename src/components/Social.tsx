@@ -1,15 +1,15 @@
 import Link from "next/link"; 
 import Image from "next/image";
 import { Social } from "../../typing";
-import { urlFor } from "@/app/sanity";
+import { sanityClient, urlFor } from "@/app/sanity";
 
 type SocialProps = {
-    social: Social[];
     width?: number;
     height?: number;
   };
 
-  export default function SocialComponents({ social, width, height }: SocialProps){
+  export default async function SocialComponents({ width, height }: SocialProps){
+    const social: Social[] = await sanityClient.fetch(`*[_type == "social"]`);
     return(
         <div className="flex flex-row gap-4">
           {social.map((social) => (

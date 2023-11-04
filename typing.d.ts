@@ -51,3 +51,13 @@ export interface Education extends SanityBody {
     school: string;
     year:  number;    
   }
+
+export interface Memoji extends SanityBody {
+    _type: 'memoji';
+    name: string;
+    title: string,
+    slug: {
+        current: string;
+    };
+    image:  ImageBitmap;
+  }

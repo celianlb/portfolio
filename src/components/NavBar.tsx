@@ -1,8 +1,13 @@
 import Link from "next/link";
+import { Memoji } from "../../typing";
+import { sanityClient } from "@/app/sanity";
+import MemojiCard from "./Memoji";
 
-export default function NavBar() {
+export default async function NavBar() {
+  const memoji: Memoji[] = await sanityClient.fetch(`*[_type == "memoji"]`);
   return (
-    <div className="pb-8 justify-center text-secondary gap-10 hidden md:flex transition ease-in duration-200">      
+    <div className="pb-8 justify-center items-center text-secondary gap-10 hidden md:flex transition ease-in duration-200">
+      <MemojiCard memoji={memoji} />
       <div className="flex flex-row bg-menu  rounded-full font-rnssanz font-bold">
         <Link
           href={"/"}

@@ -1,6 +1,7 @@
 import Button from "./Button";
 import Section from "./Section";
 import { AiOutlineMail } from "react-icons/ai";
+import Image from "next/image";
 
 export default function Contact() {
   return (
@@ -31,7 +32,17 @@ export default function Contact() {
               <AiOutlineMail size={50} style={{ margin: "auto" }} />
             </Button>
           </div>
-          <a href="https://app.daily.dev/clebacle" className="w-56 m-auto md:m-0"><img src="https://api.daily.dev/devcards/3d9fe02d8dbe416d8e153825bf9c1352.png?r=l06" width="400" alt="Célian Lebacle's Dev Card"/></a>
+          <a
+            href="https://app.daily.dev/clebacle"
+            className="w-56 m-auto md:m-0"
+          >
+            <Image
+              src="https://api.daily.dev/devcards/3d9fe02d8dbe416d8e153825bf9c1352.png?r=l06"
+              width={400}
+              height={400}
+              alt="Célian Lebacle's Dev Card"
+            />
+          </a>
         </div>
       </div>
     </Section>

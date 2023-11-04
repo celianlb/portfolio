@@ -78,12 +78,7 @@ const BurgerMenu = () => {
                     className="hover:opacity-20"
                     onClick={closeMenu}
                   >
-                    <Image
-                      src={"/img/memoji.png"}
-                      width={32}
-                      height={32}
-                      alt="memoji home"
-                    />
+                    home
                   </Link>
                   <Link
                     href="/#about"

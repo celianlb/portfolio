@@ -1,19 +1,11 @@
-'use client';
-
-import { sanityClient, urlFor } from "@/app/sanity";
-import { Projects } from "../../../typing";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Projects } from "../../typing";
+import { urlFor } from "@/app/sanity";
+import Image from "next/image";
 
-export default async function ProjectCard() {
-    const router = useRouter();
-
-  const projects: Projects[] = await sanityClient.fetch(
-    `*[_type == "projects"]`
-  );
-    return (
-        <div className=" flex flex-wrap gap-8 md:gap-12 justify-center lg:justify-between h-full">
+export default function ProjectsCard( { projects }: { projects: Projects[] }) {
+    return(
+        <div className=" flex flex-wrap gap-8 md:gap-12 justify-center lg:justify-between">
           {projects.map((projects) => (
             <div key={projects._id} className="text-secondary flex flex-col gap-3">
               <Link href={`/projects/${projects.slug.current}`}>
@@ -22,7 +14,7 @@ export default async function ProjectCard() {
                   alt={projects.title}
                   width={1280}
                   height={813}
-                  className=" w-[330px] h-[220px] md:w-[400px] md:h-[254px] rounded-[17px] hover:shadow-3xl hover:shadow-black hover:scale-105 transition ease-in-out duration-300"
+                  className="w-[342px] h-[217px] lg:w-[400px] lg:h-[254px] rounded-[17px] hover:shadow-3xl hover:shadow-black hover:scale-105 transition ease-in-out duration-300"
                 />
               </Link>
               <div className="flex flex-row justify-between">
@@ -32,7 +24,7 @@ export default async function ProjectCard() {
                   </p>
                   <p className="text-sm">{projects.category}</p>
                 </div>
-                <p>{projects.type}</p>
+                <p className=" opacity-50">{projects.type}</p>
               </div>
             </div>
           ))}

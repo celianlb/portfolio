@@ -1,21 +1,16 @@
 'use client';
 
 import Section from "./Section";
-import Image from "next/image";
 import ScrollDown from "./ScrollDown";
 import localFont from "next/font/local";
-import Link from "next/link";
-import { sanityClient, urlFor } from "@/app/sanity";
-import { Social } from "../../typing";
 import SocialComponents from "./Social";
-import { motion } from "framer-motion";
 
 const monumentextended = localFont({
   src: "../../public/font/MonumentExtended-Ultrabold.otf",
 });
 
-export default async function Hero() {
-  const social: Social[] = await sanityClient.fetch(`*[_type == "social"]`);
+export default function Hero() {
+  
   return (
     <Section>
       <div className="flex flex-col items-center text-secondary gap-8">
@@ -30,7 +25,7 @@ export default async function Hero() {
             Hello, Im a junior developper who want to specialize in front-end
             developpement
           </p>
-          <SocialComponents width={32} height={32} social={social} />
+          <SocialComponents width={32} height={32} />
         </div>
         <ScrollDown target="" />
       </div>

@@ -19,8 +19,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Célian Lebacle",
-  description: "Portfolio Célian Lebacle",
+  title: "Célian Lebacle",
+  description: "Welcome to my portfolio! Above you can find my education, skills, projects and all the links to contact me",
 };
 
 export default async function RootLayout({

@@ -7,6 +7,7 @@ import { AiFillGithub } from "react-icons/ai";
 import { BiLink } from "react-icons/bi";
 import { useRouter } from "next/navigation";
 import { FiArrowLeft, FiMenu } from "react-icons/fi";
+import Head from "next/head";
 
 interface ProjectClientProps {
   project: Projects;
@@ -14,8 +15,11 @@ interface ProjectClientProps {
 
 export default async function OneProject({ project }: ProjectClientProps) {
   const router = useRouter();
-  return (
+  return (    
     <div className="flex flex-col text-secondary m-auto w-full gap-3 md:w-[650px]">
+      <Head>
+        <title>{project.title}</title>
+      </Head>
       <button
         className="flex flex-row items-center gap-3 mb-4" // Ajouter une position absolue pour le bouton avec un espacement de 24px depuis le haut
         onClick={() => router.back()}

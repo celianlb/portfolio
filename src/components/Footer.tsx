@@ -8,7 +8,7 @@ export default async function Footer() {
   const social: Social[] = await sanityClient.fetch(`*[_type == "social"]`);
   return (
     <div className="pt-8">
-      <footer className="flex flex-col items-center md:flex-row md:justify-between">
+      <footer className="flex flex-col gap-4 items-center md:flex-row md:justify-between">
           <SocialComponents width={48} height={48} social={social} />
           <p className=" text-secondary font-rnssanz">
             © 2023 Célian Lebacle. Tous droits réservés.

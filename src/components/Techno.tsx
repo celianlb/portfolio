@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function AllTechno({ techno }: { techno: Techno[] }) {
   techno = techno.sort((a, b) => b.rating - a.rating);
   return (
-    <div className="flex flex-wrap justify-center gap-6">
+    <div className="flex flex-wrap justify-center md:justify-between gap-6">
       {techno.map((techno) => (
         <div key={techno._id} className="flex flex-col text-secondary items-center gap-2">
           <div className="flex flex-col gap-2 items-center bg-secondary w-24 p-4 rounded-xl bg-opacity-10">

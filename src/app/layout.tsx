@@ -4,6 +4,7 @@ import React from "react";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
+import ScrollButton from "@/components/ScrollButton";
 
 const rnssanz = localFont({ src: "../../public/font/RNSSanz-Normal.otf" });
 const monumentextended = localFont({
@@ -34,6 +35,7 @@ export default async function RootLayout({
       >        
         <main className="dark px-6 py-10 md:px-24 2xl:container">          
           {children}
+          <ScrollButton />
         </main>
       </body>
     </html>

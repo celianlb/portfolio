@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "All projects",
+  description: "Discover all my projects, there is some app, landing page, website, etc... Projects can from school or personal",
 };
 
 export default function ProjectsPage() {

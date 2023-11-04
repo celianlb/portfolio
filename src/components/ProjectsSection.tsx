@@ -23,7 +23,7 @@ export default async function Projects({ projects }: { projects: Projects[] }) {
           </p>
         </div>
 
-        <div className=" flex flex-wrap gap-8 md:gap-12 justify-center">
+        <div className=" flex flex-wrap gap-8 md:gap-12 justify-center lg:justify-between">
           {projects.map((projects) => (
             <div key={projects._id} className="text-secondary flex flex-col gap-3">
               <Link href={`/projects/${projects.slug.current}`}>

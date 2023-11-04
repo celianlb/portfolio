@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from "@/components/Hero";
 import { Projects, Social } from "../../typing";
 import { sanityClient } from "./sanity";
@@ -23,6 +21,7 @@ export default async function Home() {
       <ProjectsSection projects={projects} />
       <Contact />
       <Footer />
+      
     </>
   );
 }

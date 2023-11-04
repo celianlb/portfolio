@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FiX, FiMenu } from "react-icons/fi";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,14 +37,24 @@ const BurgerMenu = () => {
   return (
     <>
       <div className="relative pb-8 md:hidden">
-        <div className="flex justify-center cursor-pointer" onClick={toggleMenu}>
+        <div
+          className="flex justify-center cursor-pointer"
+          onClick={toggleMenu}
+        >
           {isOpen ? (
-            <FiX size={50} className="bg-varprimary text-secondary rounded-lg p-2" />
+            <motion.div whileTap={{ rotate: 180 }} onClick={toggleMenu}>
+              <FiX
+                size={50}
+                className="bg-varprimary text-secondary rounded-lg p-2"
+              />
+            </motion.div>
           ) : (
-            <FiMenu
-              size={50}
-              className="text-secondary p-2 transition ease-in duration-300"
-            />
+            <motion.div whileTap={{ rotate: 180 }} onClick={toggleMenu}>
+              <FiMenu
+                size={50}
+                className="text-secondary p-2 transition ease-in duration-300"
+              />
+            </motion.div>
           )}
         </div>
         <AnimatePresence>
@@ -61,14 +72,38 @@ const BurgerMenu = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="flex text-center items-center flex-col p-6 lowercase">
-                  <Link href="/#about" className="hover:opacity-20" onClick={closeMenu}>
+                <div className="flex text-center gap-3 items-center flex-col p-6 lowercase">
+                  <Link
+                    href="/"
+                    className="hover:opacity-20"
+                    onClick={closeMenu}
+                  >
+                    <Image
+                      src={"/img/memoji.png"}
+                      width={32}
+                      height={32}
+                      alt="memoji home"
+                    />
+                  </Link>
+                  <Link
+                    href="/#about"
+                    className="hover:opacity-20"
+                    onClick={closeMenu}
+                  >
                     About
                   </Link>
-                  <Link href="/projects" className="hover:opacity-20" onClick={closeMenu}>
+                  <Link
+                    href="/projects"
+                    className="hover:opacity-20"
+                    onClick={closeMenu}
+                  >
                     Projects
                   </Link>
-                  <Link href="/#contact" className="hover:opacity-20" onClick={closeMenu}>
+                  <Link
+                    href="/#contact"
+                    className="hover:opacity-20"
+                    onClick={closeMenu}
+                  >
                     Contact
                   </Link>
                 </div>

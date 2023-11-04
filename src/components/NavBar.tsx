@@ -1,11 +1,8 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <div
-      className="pb-8 justify-center text-secondary gap-10 hidden md:flex transition ease-in duration-200"
-    >
+    <div className="pb-8 justify-center text-secondary gap-10 hidden md:flex transition ease-in duration-200">      
       <div className="flex flex-row bg-menu  rounded-full font-rnssanz font-bold">
         <Link
           href={"/"}

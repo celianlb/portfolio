@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FiArrowUp } from "react-icons/fi";
-import Button from "./Button";
 
 const ScrollButton = () => {
   const [isVisible, setIsVisible] = useState(false);

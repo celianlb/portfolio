@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import ProjectCard from "@/components/ProjectsCard";
 import { sanityClient } from "../sanity";
 import { Projects } from "../../../typing";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -22,6 +23,7 @@ export default async function ProjectsPage() {
       <Section>
         <ProjectCard projects={projects} />
       </Section>
+      <Footer />
     </main>
   );
 }

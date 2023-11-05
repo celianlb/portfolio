@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import React from "react";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
-import Header from "@/components/Header";
 import ScrollButton from "@/components/ScrollButton";
 
 const rnssanz = localFont({ src: "../../public/font/RNSSanz-Normal.otf" });
@@ -32,7 +31,7 @@ export default async function RootLayout({
     <html lang="fr" className="!scroll-smooth">
       <body
         className={`${montserrat.variable} ${rnssanz.style} ${monumentextended.style} `}
-      >        
+      >
         <main className="dark px-6 py-10 md:px-24 2xl:container">          
           {children}
           <ScrollButton />

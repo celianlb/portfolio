@@ -40,8 +40,7 @@ export default async function Project({
 }) {
   const project = await getProject(params.slug);
   return (
-    <main>      
-      <Header />
+    <main>
       <OneProject project={project} />
     </main>
   );

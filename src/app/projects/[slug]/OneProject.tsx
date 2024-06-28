@@ -1,12 +1,12 @@
 "use client";
 import { urlFor } from "@/app/sanity";
 import Image from "next/image";
-import { Projects } from "../../../../typing";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AiFillGithub } from "react-icons/ai";
 import { BiLink } from "react-icons/bi";
-import { useRouter } from "next/navigation";
-import { FiArrowLeft, FiMenu } from "react-icons/fi";
+import { FiArrowLeft } from "react-icons/fi";
+import { Projects } from "../../../../typing";
 
 interface ProjectClientProps {
   project: Projects;
@@ -14,14 +14,14 @@ interface ProjectClientProps {
 
 export default function OneProject({ project }: ProjectClientProps) {
   const router = useRouter();
-  return (    
+  return (
     <div className="flex flex-col text-secondary m-auto w-full gap-3 md:w-[650px]">
       <button
         className="flex flex-row items-center gap-3 mb-4" // Ajouter une position absolue pour le bouton avec un espacement de 24px depuis le haut
         onClick={() => router.back()}
       >
         <FiArrowLeft className="" />
-        <p>back</p>
+        <p>back </p>
       </button>
       <Image
         src={project.image && urlFor(project.image).url()}
@@ -61,7 +61,6 @@ export default function OneProject({ project }: ProjectClientProps) {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
